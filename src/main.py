@@ -1,5 +1,6 @@
 import pandas as pd
 from data_cleaning import load_data
+from data_visualization import correlation_matrix
 
 file_path = "data/raw/diamonds.csv"
 
@@ -14,6 +15,10 @@ def main():
         )
 
     load_data(df)
+    correlation_matrix(df)
+
+    
+
 
 if __name__ == "__main__":
     main()
