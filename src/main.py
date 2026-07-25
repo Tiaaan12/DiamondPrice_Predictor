@@ -1,6 +1,7 @@
 import pandas as pd
 from data_cleaning import load_data
 from data_visualization import correlation_matrix
+from data_visualization import price_distribution
 
 file_path = "data/raw/diamonds.csv"
 
@@ -16,6 +17,7 @@ def main():
 
     load_data(df)
     correlation_matrix(df)
+    price_distribution(df)
 
     
 
