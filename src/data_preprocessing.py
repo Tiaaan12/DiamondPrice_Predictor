@@ -1,6 +1,8 @@
 from sklearn.model_selection import train_test_split
 import numpy as np
-
+from sklearn.linear_model import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import StandardScaler
 
 def preprocess_data(df):
 
@@ -26,3 +28,17 @@ def preprocess_data(df):
         "y",
         "z"
     ]
+    preprocessor = ColumnTransformer(
+    transformers=[
+        (
+            "num",
+            StandardScaler(),
+            numerical_features
+        ),
+        (
+            "cat",
+            OneHotEncoder(drop="first"),
+            categorical_features
+        )
+    ]
+)
