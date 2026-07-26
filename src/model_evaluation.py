@@ -35,3 +35,26 @@ def show_model_coefficients(model):
             f"features constant, is associated with a {direction} of "
             f"{abs(coefficient):.4f} in the predicted log diamond price."
         )
+
+def show_model_residuals(model, actual, predictions, X_test, y_test):
+    log_predictions = model.predict(X_test)
+
+    actual = np.expm1(y_test)
+    predictions = np.expm1(log_predictions)
+
+    results = X_test.copy()
+
+    results["Actual Price ($)"] = actual.values
+    results["Predicted Price ($)"] = predictions
+
+    results["Residual ($)"] = (
+        results["Actual Price ($)"] -
+        results["Predicted Price ($)"]
+    )
+
+    results["Absolute Error ($)"] = (
+        results["Residual ($)"].abs()
+    )
+
+    print("\nACTUAL AND PREDICTED DIAMOND PRICES")
+    print(results.round(2))
