@@ -4,6 +4,7 @@ from data_visualization import correlation_matrix
 from data_visualization import price_distribution
 from data_preprocessing import preprocess_data
 from data_training import train_model
+from model_evaluation import show_prediction, show_model_coefficients, show_model_residuals, evaluate_model
 
 file_path = "data/raw/diamonds.csv"
 
@@ -21,7 +22,12 @@ def main():
     correlation_matrix(df)
     price_distribution(df)
     X_train, X_test, y_train, y_test, preprocessor = preprocess_data(df)
-    train_model(X_train, y_train, preprocessor)
+    model = train_model(X_train, y_train, preprocessor)
+    actual, predictions = show_prediction(model, X_test, y_test)
+    show_model_coefficients(model)
+    show_model_residuals(model, actual, predictions, X_test, y_test)
+    evaluate_model(actual, predictions)
+
 
 
 

@@ -1,6 +1,6 @@
 from sklearn.model_selection import train_test_split
 import numpy as np
-from sklearn.linear_model import ColumnTransformer
+from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler
 
