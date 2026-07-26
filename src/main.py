@@ -2,6 +2,8 @@ import pandas as pd
 from data_cleaning import load_data
 from data_visualization import correlation_matrix
 from data_visualization import price_distribution
+from data_preprocessing import preprocess_data
+from data_training import train_model
 
 file_path = "data/raw/diamonds.csv"
 
@@ -18,8 +20,9 @@ def main():
     load_data(df)
     correlation_matrix(df)
     price_distribution(df)
+    X_train, X_test, y_train, y_test, preprocessor = preprocess_data(df)
+    train_model(X_train, y_train, preprocessor)
 
-    
 
 
 if __name__ == "__main__":
