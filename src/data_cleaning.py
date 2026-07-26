@@ -34,4 +34,11 @@ def load_data(df):
         df.reset_index(drop=True, inplace=True)
 
         df = df.drop(columns=['Unnamed: 0'], axis = 1)
+
+        try:
+            df.to_csv("data/processed/processed_diamonds.csv", index=False)
+            print("Processed dataset save sucessfully.")
+        except Exception as error:
+            print(f"Error saving processed dataset: {error}")
+
         

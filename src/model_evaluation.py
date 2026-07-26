@@ -1,5 +1,10 @@
 import numpy as np
 import pandas as pd
+from sklearn.metrics import (
+    mean_absolute_error,
+    mean_squared_error,
+    r2_score
+)
 
 def show_prediction(model, X_test, y_test):
     log_predictions = model.predict(X_test)
@@ -58,3 +63,31 @@ def show_model_residuals(model, actual, predictions, X_test, y_test):
 
     print("\nACTUAL AND PREDICTED DIAMOND PRICES")
     print(results.round(2))
+
+def evaluate_model(actual, predictions):
+    mae = mean_absolute_error(actual, predictions)
+    mse = mean_squared_error(actual, predictions)
+    rmse = np.sqrt(mse)
+    r2 = r2_score(actual, predictions)
+
+    print("\nMODEL EVALUATION")
+    print(f"MAE : {mae:.2f}")
+    print(f"MSE : {mse:.2f}")
+    print(f"RMSE: {rmse:.2f}")
+    print(f"R²  : {r2:.4f}")
+
+    print("\nEVALUATION INTERPRETATION")
+    print(
+        f"On average, the model's predictions differ from the actual"
+        f"diamond prices by approximately {mae:.2f}, based on MAE."
+    )
+
+    if r2 >= 0.90:
+        print("The model explains the variation in the data very well")
+    elif r2 >= 0.70:
+        print("The model demonstrates reasonably good predictive performance")
+    elif r2 >= 0.50:
+        print("The model demonstrates moderate predictive performance.")
+    else:
+        print("The model has limited predictive performance and may require "
+        "more data or additional relevant features.")
