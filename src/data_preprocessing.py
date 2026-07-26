@@ -15,3 +15,14 @@ def preprocess_data(df):
 
     print("\nTARGET")
     print(y.head())
+
+    categorical_features = ["cut", "color", "clarity"]
+
+    numerical_features = [
+        "carat",
+        "depth",
+        "table",
+        "x",
+        "y",
+        "z"
+    ]
