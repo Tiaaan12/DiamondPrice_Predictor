@@ -30,4 +30,8 @@ def load_data(df):
         upper = Q3 + 1.5 * IQR
 
         df = df[(df[col] >= lower) & (df[col] <= upper)]
+
+        df.reset_index(drop=True, inplace=True)
+
+        df = df.drop(columns=['Unnamed: 0'], axis = 1)
         
