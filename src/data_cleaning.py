@@ -41,4 +41,5 @@ def load_data(df):
         except Exception as error:
             print(f"Error saving processed dataset: {error}")
 
+    return df
         

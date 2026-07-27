@@ -1,6 +1,6 @@
 import pandas as pd
 from data_cleaning import load_data
-from data_visualization import correlation_matrix
+from data_visualization import correlation_matrix, predictions_scatter_plot
 from data_visualization import price_distribution
 from data_preprocessing import preprocess_data
 from data_training import train_model
@@ -27,6 +27,8 @@ def main():
     show_model_coefficients(model)
     show_model_residuals(model, actual, predictions, X_test, y_test)
     evaluate_model(actual, predictions)
+    predictions_scatter_plot(model, X_test, y_test)
+
 
 
 
