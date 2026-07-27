@@ -51,6 +51,32 @@ def predictions_scatter_plot(model, X_test, y_test):
 
     plt.grid(alpha=0.3)
     plt.tight_layout()
-
+    plt.savefig("assets/visualization/prediction_scatter_plot.png", dpi=300, bbox_inches='tight')
     plt.show()
+
+def residuals_scatter_plot(actual, predictions):
+    residuals = actual - predictions
+    
+
+    plt.figure(figsize=(8, 6))
+    plt.scatter(
+        predictions,
+        residuals,
+        s=70,
+        alpha=0.6
+    )
+
+    plt.axhline(
+        y=0,
+        color="red",
+        linestyle="--"
+    )
+    plt.xlabel("Predicted Diamond Price ($)")
+    plt.ylabel("Residual (Acutal - Predicted)")
+    plt.title("Residual Plot for Diamond Price Prediction")
+    plt.grid(alpha=0.3),
+    plt.tight_layout()
+    plt.savefig("assets/visualization/residual_scatter_plot.png", dpi=300, bbox_inches='tight')
+    plt.show()
+    
     

@@ -1,7 +1,6 @@
 import pandas as pd
 from data_cleaning import load_data
-from data_visualization import correlation_matrix, predictions_scatter_plot
-from data_visualization import price_distribution
+from data_visualization import correlation_matrix, predictions_scatter_plot, residuals_scatter_plot, price_distribution
 from data_preprocessing import preprocess_data
 from data_training import train_model
 from model_evaluation import show_prediction, show_model_coefficients, show_model_residuals, evaluate_model
@@ -28,6 +27,8 @@ def main():
     show_model_residuals(model, actual, predictions, X_test, y_test)
     evaluate_model(actual, predictions)
     predictions_scatter_plot(model, X_test, y_test)
+    residuals_scatter_plot(actual, predictions)
+    
 
 
 
