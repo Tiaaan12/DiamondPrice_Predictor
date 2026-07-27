@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LinearRegression
 import joblib
 
-def train_model(preprocessor, X_train, y_train):
+def train_model(X_train, y_train, preprocessor):
     model = Pipeline([
     ("preprocessor", preprocessor),
     ("regressor", LinearRegression())
