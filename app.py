@@ -84,4 +84,31 @@ with col2:
         value=3.40
     )
 
+if st.button("💎 Predict Price", use_container_width=True):
 
+    sample = pd.DataFrame({
+
+        "carat": [carat],
+        "cut": [cut],
+        "color": [color],
+        "clarity": [clarity],
+        "depth": [depth],
+        "table": [table],
+        "x": [x],
+        "y": [y],
+        "z": [z]
+
+    })
+
+    log_prediction = model.predict(sample)[0]
+    prediction = np.expm1(log_prediction)
+
+    result_placeholder.markdown(
+    f"""
+    <h2 style="margin-top:20px;">
+        💎 Estimated Diamond Price:
+        <span style="color:#1f77b4;">${prediction:,.2f}</span>
+    </h2>
+    """,
+    unsafe_allow_html=True
+)
