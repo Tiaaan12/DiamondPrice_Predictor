@@ -223,7 +223,7 @@ $4,865.37
 
 Bachelor of Science in Computer Science
 
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/Tiaaan12
 
 ---
 
