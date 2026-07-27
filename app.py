@@ -57,4 +57,31 @@ with col1:
         ["I1", "SI2", "SI1", "VS2", "VS1", "VVS2", "VVS1", "IF"]
     )
 
+with col2:
+
+    depth = st.number_input(
+        "Depth",
+        value=61.5
+    )
+
+    table = st.number_input(
+        "Table",
+        value=57.0
+    )
+
+    x = st.number_input(
+        "Length (x)",
+        value=5.50
+    )
+
+    y = st.number_input(
+        "Width (y)",
+        value=5.50
+    )
+
+    z = st.number_input(
+        "Depth (z)",
+        value=3.40
+    )
+
 
