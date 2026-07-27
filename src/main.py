@@ -4,6 +4,7 @@ from data_visualization import correlation_matrix, predictions_scatter_plot, res
 from data_preprocessing import preprocess_data
 from data_training import train_model
 from model_evaluation import show_prediction, show_model_coefficients, show_model_residuals, evaluate_model
+from prediction import custom_prediction
 
 file_path = "data/raw/diamonds.csv"
 
@@ -28,11 +29,8 @@ def main():
     evaluate_model(actual, predictions)
     predictions_scatter_plot(model, X_test, y_test)
     residuals_scatter_plot(actual, predictions)
+    custom_prediction(model, predictions)
     
-
-
-
-
 
 if __name__ == "__main__":
     main()
