@@ -33,7 +33,8 @@ def load_data(df):
 
         df.reset_index(drop=True, inplace=True)
 
-        df = df.drop(columns=['Unnamed: 0'], axis = 1)
+        if "Unnamed: 0" in df.columns:
+            df.drop(columns=["Unnamed: 0"], inplace=True)
 
         try:
             df.to_csv("data/processed/processed_diamonds.csv", index=False)
